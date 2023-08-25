@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'gendr',
     'about',
     'settings',
+    'django_summernote',
+    "bootstrap4",
+    'django_filters',
 ]
 
 MIDDLEWARE = [
