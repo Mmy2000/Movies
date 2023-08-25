@@ -17,7 +17,7 @@ class All(models.Model):
     category = models.ForeignKey('Category',related_name='all_category',on_delete=models.CASCADE)
     created_at = models.DateTimeField( default=timezone.now)
     slug = models.SlugField(null=True,blank=True)
-    time = models.IntegerField( default=0)
+    time = models.CharField( max_length=50)
 
     def __str__(self):
         return self.name
@@ -26,6 +26,10 @@ class All(models.Model):
         if not self.slug:
             self.slug=slugify(self.name)
         super(All,self).save(*args,**kwargs)
+
+    def get_absolute_url(self):
+        return reverse("all:all_detail", kwargs={"slug": self.slug})
+    
 
 
 class AllImages(models.Model):
