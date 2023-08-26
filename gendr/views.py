@@ -22,7 +22,7 @@ class AllDetail(FormMixin,DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["related"] = All.objects.filter(category=self.get_object().category)[:5]
+        context["related"] = All.objects.filter(category=self.get_object().category)[:3]
         return context
     
     def post(self , request , *args , **kwargs):

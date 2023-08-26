@@ -6,119 +6,76 @@
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 mx-auto" >
+            <div class="col-lg-10 mx-auto">
                 <div class="row">
                     <div class="col-md-12 ftco-animate">
                         <div class="single-slider owl-carousel">
-							{% for image in object.all_image.all  %}
-							<div class="item">
-								<div class="hotel-img" style="background-image: url({{image.image.url}});"></div>
-							</div>
-							{% endfor %}
-                    </div>
-                    <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
-                        <span>Our Best hotels &amp; Rooms</span>
-                        <h2>{{object}}</h2>
-                        <p class="rate mb-5">
-                            <span class="loc"><a href="#"><i class="icon-map"></i> {{object.created_at}}</a></span>
-                            <span class="star">rate : 
-                                {{object.rate}}</span>
+                            {% for image in object.all_image.all  %}
+                            <div class="item">
+                                <div class="hotel-img" style="background-image: url({{image.image.url}});"></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+                            <h2>{{object}}</h2>
+                            <p class="rate mb-5">
+                                <span class="loc"><a href="#"><i class="icon-map"></i> {{object.created_at}}</a></span>
+                                <span class="star">rate :
+                                    {{object.rate}}</span>
 
-                        </p>
-                        <span>Quality : {{object.quality}} &amp; time : {{object.time}} &amp; Group_age : {{object.age_group}}</span>
-                        <p>{{object.description|safe}}</p>
-                    <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                        <h4 class="mb-5">Check Availability &amp; Booking</h4>
-						<form method="post" class="form">
-							{% csrf_token %}
-							{% bootstrap_form form %}
-							{% buttons %}
-							<button type="submit" class="btn btn-primary">Add To Favorite</button>
-							{% endbuttons %}
-						</form>
-                    </div>
-                    <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                        <h4 class="mb-4">Review &amp; Ratings</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form method="post" class="star-rating">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
-                                                        class="icon-star"></i><i class="icon-star"></i><i
-                                                        class="icon-star"></i> 100 Ratings</span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
-                                                        class="icon-star"></i><i class="icon-star"></i><i
-                                                        class="icon-star-o"></i> 30 Ratings</span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
-                                                        class="icon-star"></i><i class="icon-star-o"></i><i
-                                                        class="icon-star-o"></i> 5 Ratings</span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
-                                                        class="icon-star-o"></i><i class="icon-star-o"></i><i
-                                                        class="icon-star-o"></i> 0 Ratings</span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i
-                                                        class="icon-star-o"></i><i class="icon-star-o"></i><i
-                                                        class="icon-star-o"></i> 0 Ratings</span></p>
-                                        </label>
-                                    </div>
+                            </p>
+                            <span>Quality : {{object.quality}} &amp; time : {{object.time}} &amp; Group_age :
+                                {{object.age_group}}</span>
+                            <p>{{object.description|safe}}</p>
+                            <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                                <h4 class="mb-5">Add To Favorite</h4>
+                                <form method="post" class="form">
+                                    {% csrf_token %}
+                                    {% bootstrap_form form %}
+                                    {% buttons %}
+                                    <button type="submit" class="btn btn-primary">Add To Favorite</button>
+                                    {% endbuttons %}
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
-                        <h4 class="mb-4">Related Hotels</h4>
-                        <div class="row">
-                            {% for property in related  %}
-                            <div class="col-md-4">
-                                <div class="destination">
-                                    <a href="{{property.get_absolute_url}}" class="img img-2"
-                                        style="background-image: url({{property.image.url}});"></a>
-                                    <div class="text p-3">
-                                        <div class="d-flex">
-                                            <div class="one">
-                                                <h3><a href="{{property.get_absolute_url}}">{{property}}</a></h3>
-                                                <h3>{{movie.time}}</h3>
-                                            </div>
-                                            <div class="two">
-                                                <span class="price per-price">{{property.rate}}<br><small>rate</small></span>
+                            <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
+                                <h4 class="mb-4">Watch Another</h4>
+                                <div class="row">
+                                    {% for property in related  %}
+                                    <div class="col-md-4">
+                                        <div class="destination">
+                                            <a href="{{property.get_absolute_url}}" class="img img-2"
+                                                style="background-image: url({{property.image.url}});"></a>
+                                            <div class="text p-3">
+                                                <div class="d-flex">
+                                                    <div class="one">
+                                                        <h3><a href="{{property.get_absolute_url}}">{{property}}</a>
+                                                        </h3>
+                                                        <h3>{{movie.time}}</h3>
+                                                    </div>
+                                                    <div class="two">
+                                                        <span
+                                                            class="price per-price">{{property.rate}}<br><small>rate</small></span>
+                                                    </div>
+                                                </div>
+                                                <p>{{property.description|safe|truncatewords:5}}</p>
+                                                <hr>
+                                                <p class="bottom-area d-flex">
+                                                    <span><i class="icon-map-o"></i> {{property.quality}}</span>
+                                                    <span class="ml-auto"><a href="{{property.get_absolute_url}}">Watch
+                                                            Now</a></span>
+                                                </p>
                                             </div>
                                         </div>
-                                        <p>{{property.description|safe|truncatewords:5}}</p>
-                                        <hr>
-                                        <p class="bottom-area d-flex">
-                                            <span><i class="icon-map-o"></i> {{property.quality}}</span>
-                                            <span class="ml-auto"><a href="{{property.get_absolute_url}}">Watch Now</a></span>
-                                        </p>
                                     </div>
+                                    {% endfor %}
                                 </div>
-                            </div>
-                           {% endfor %}
-                    </div>
+                                </div>
 
+                            </div>
+                        </div> <!-- .col-md-8 -->
+                    </div>
                 </div>
-            </div> <!-- .col-md-8 -->
-        </div>
-    </div>
 </section> <!-- .section -->
+<div id="disqus_thread"></div>
+
 {% endblock body %}
