@@ -5,4 +5,5 @@ app_name = 'settings'
 
 urlpatterns = [
     path('', home ,name = 'home'),
+
 ]

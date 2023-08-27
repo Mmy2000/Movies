@@ -10,6 +10,7 @@ class All(models.Model):
     owner = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='all/')
+    image2 = models.ImageField( upload_to='all/')
     rate = models.FloatField(default=0)
     description = models.TextField(max_length=10000)
     quality = models.CharField(max_length=100)

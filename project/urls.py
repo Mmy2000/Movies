@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('all/' , include('gendr.urls',namespace='all')),
     path('' , include('settings.urls',namespace='home')),
+    path('about/' , include('about.urls',namespace='about')),
     path('summernote/', include('django_summernote.urls')),
     ]
 
