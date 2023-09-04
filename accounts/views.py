@@ -1,8 +1,9 @@
 from django.shortcuts import render , redirect
 from .forms import SignupForm , UserForm , ProfileForm
-from .models import Profile
+from .models import Profile 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate , login 
+from gendr.models import AddToFavorite
 
 
 
@@ -13,7 +14,7 @@ def signup(request):
             form.save()
             
             usernames = form.cleaned_data['username']
-            passwords = form.changed_data["password1"]
+            passwords = form.changed_data['password1']
             user = authenticate(username=usernames,password=passwords)
             login(request,user)
 
@@ -52,12 +53,7 @@ def edit_profile(requset):
         'user_form':user_form,
         'profile_form':profile_form
     })
-'''
-def myreservation(request):
-    property_list = PropertyBook.objects.filter(user=request.user)
-    return render(request , 'profile/reservation.html',{'property_list':property_list})
 
-def mylisting(request):
-    property_list = Property.objects.filter(owner=request.user)
-    return render(request , 'profile/mylisting.html',{'property_list':property_list})
-'''
+def myfavorite(request):
+    favorite_list = AddToFavorite.objects.filter(user=request.user)
+    return render(request , 'profile/favorite.html',{'favorite_list':favorite_list})

@@ -5,6 +5,7 @@ from .forms import PropertyFVForm
 from .filters import PropertyFilter
 from django_filters.views import FilterView
 from .models import All
+from django.http import HttpResponseRedirect
 
 
 
@@ -33,7 +34,7 @@ class AllDetail(FormMixin,DetailView):
             myform.user = request.user
             myform.save()
 
-            return redirect('/')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     
 
 

@@ -60,7 +60,13 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'all:all_list' %}">All</a>
         </li>
-        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item cta"><a href="{% url 'accounts:profile' %}" class="nav-link">Profile</a></li>
+        <li class="nav-item cta"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+        {% else %}
+        <li class="nav-item cta"><a href="{% url 'login' %}" class="nav-link"><span>Login</span></a></li>
+        <li class="nav-item cta"><a href="{% url 'accounts:signup' %}" class="nav-link"><span>Signup</span></a></li>
+        {% endif %}
       </ul>
     </div>
   </nav>
@@ -84,7 +90,8 @@
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
               <li class="ftco-animate"><a href="{{myfooter.fb_link}}"><span class="icon-twitter"></span></a></li>
               <li class="ftco-animate"><a href="{{myfooter.twitter_link}}"><span class="icon-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="{{myfooter.instagram_link}}"><span class="icon-instagram"></span></a></li>
+              <li class="ftco-animate"><a href="{{myfooter.instagram_link}}"><span class="icon-instagram"></span></a>
+              </li>
             </ul>
           </div>
         </div>

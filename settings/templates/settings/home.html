@@ -38,9 +38,23 @@
                     <li><a href="{% url 'all:all_list' %}">All</a></li>
                     <li><a href="{% url 'about:about' %}">About</a></li>
                     <li>
-                        <a href="#" class="btn btn-hover">
-                            <span>Sign in</span>
+                        {% if request.user.is_authenticated %}
+
+                        <a href="{% url 'accounts:profile' %}" class="btn btn-hover">
+                            <span>Profile</span>
                         </a>
+                        <a href="{% url 'logout' %}" class="btn btn-hover">
+                            <span>Logout</span>
+                        </a>
+                        {%else%}
+                            <a href="{% url 'login' %}" class="btn btn-hover">
+                                <span>Login</span>
+                            </a> <a href="{% url 'accounts:signup' %}" class="btn btn-hover">
+                                <span>Sign in</span>
+                            </a>
+
+                        {% endif %}
+
                     </li>
                 </ul>
                 <!-- MOBILE MENU TOGGLE -->
@@ -83,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                 {{movie.descriptoin}}
+                                {{movie.descriptoin}}
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="{{movie.get_absolute_url}}" class="btn btn-hover">
@@ -103,7 +117,7 @@
             <div class="owl-carousel" id="top-movies-slide">
                 {% for movie in movie_list  %}
                 <div class="movie-item">
-                   <a href="{{movie.get_absolute_url}}"> <img src="{{movie.image.url}}" alt=""></a>
+                    <a href="{{movie.get_absolute_url}}"> <img src="{{movie.image.url}}" alt=""></a>
                     <div class="movie-item-content">
                         <div class="movie-item-title">
                             {{movie}}
@@ -121,7 +135,7 @@
                                 <span>{{movie.quality}}</span>
                             </div>
                             <div class="movie-info">
-                                <span>{{movie.quality}}</span>
+                                <span>{{movie.age_group}}</span>
                             </div>
                         </div>
                     </div>
