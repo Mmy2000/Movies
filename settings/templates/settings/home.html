@@ -71,36 +71,36 @@
         <!-- HERO SLIDE -->
         <div class="hero-slide">
             <div class="owl-carousel carousel-nav-center" id="hero-carousel">
-                {% for movie in movie_list2  %}
+                {% for all in all_list  %}
                 <div class="hero-slide-item">
-                    <img src="{{movie.image2.url}}" alt="">
+                    <img src="{{all.image2.url}}" alt="">
                     <div class="overlay"></div>
                     <div class="hero-slide-item-content">
                         <div class="item-content-wraper">
                             <div class="item-content-title top-down">
-                                {{movie}}
+                                {{all}}
                             </div>
                             <div class="movie-infos top-down delay-2">
                                 <div class="movie-info">
                                     <i class="bx bxs-star"></i>
-                                    <span>{{movie.rate}}</span>
+                                    <span>{{all.rate}}</span>
                                 </div>
                                 <div class="movie-info">
                                     <i class="bx bxs-time"></i>
-                                    <span>{{movie.time}}</span>
+                                    <span>{{all.time}}</span>
                                 </div>
                                 <div class="movie-info">
-                                    <span>{{movie.quality}}</span>
+                                    <span>{{all.quality}}</span>
                                 </div>
                                 <div class="movie-info">
-                                    <span>{{movie.age_group}}</span>
+                                    <span>{{all.age_group}}</span>
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                {{movie.descriptoin}}
+                                {{all.descriptoin}}
                             </div>
                             <div class="item-action top-down delay-6">
-                                <a href="{{movie.get_absolute_url}}" class="btn btn-hover">
+                                <a href="{{all.get_absolute_url}}" class="btn btn-hover">
                                     <i class="bx bxs-right-arrow"></i>
                                     <span>Watch now</span>
                                 </a>
@@ -375,8 +375,8 @@
                             <div class="content">
                                 <p><b>Flix</b></p>
                                 <ul class="footer-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">My profile</a></li>
+                                    <li><a href="{% url 'about:about' %}">About us</a></li>
+                                    <li><a href="{% url 'accounts:profile' %}">My profile</a></li>
                                     <li><a href="#">Pricing plans</a></li>
                                     <li><a href="#">Contacts</a></li>
                                 </ul>
@@ -386,10 +386,10 @@
                             <div class="content">
                                 <p><b>Help</b></p>
                                 <ul class="footer-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">{{myfooter.email}}</a></li>
-                                    <li><a href="#">{{myfooter.phone}}</a></li>
-                                    <li><a href="#">{{myfooter.address}}</a></li>
+                                    <li><a href="{% url 'about:about' %}">About us</a></li>
+                                    <li><a href="{% url 'accounts:profile' %}">{{myfooter.email}}</a></li>
+                                    <li><a href="{% url 'accounts:profile' %}">{{myfooter.phone}}</a></li>
+                                    <li><a href="{% url 'accounts:profile' %}">{{myfooter.address}}</a></li>
                                 </ul>
                             </div>
                         </div>
