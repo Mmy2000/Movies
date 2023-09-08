@@ -47,11 +47,11 @@
                             <span>Logout</span>
                         </a>
                         {%else%}
-                            <a href="{% url 'login' %}" class="btn btn-hover">
-                                <span>Login</span>
-                            </a> <a href="{% url 'accounts:signup' %}" class="btn btn-hover">
-                                <span>Sign in</span>
-                            </a>
+                        <a href="{% url 'login' %}" class="btn btn-hover">
+                            <span>Login</span>
+                        </a> <a href="{% url 'accounts:signup' %}" class="btn btn-hover">
+                            <span>Sign in</span>
+                        </a>
 
                         {% endif %}
 
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                {{all.descriptoin}}
+                                <p>{{all.description|safe}}</p>
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="{{all.get_absolute_url}}" class="btn btn-hover">
@@ -175,7 +175,7 @@
                                 <span>{{movie.quality}}</span>
                             </div>
                             <div class="movie-info">
-                                <span>{{movie.age_group}}+</span>
+                                <span>{{movie.age_group}}</span>
                             </div>
                         </div>
                     </div>

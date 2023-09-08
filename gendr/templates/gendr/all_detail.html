@@ -17,16 +17,19 @@
                             {% endfor %}
                         </div>
                         <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
-                            <h2>{{object}}</h2>
+                            <h1>{{object}}</h1>
+                            <hr>
                             <p class="rate mb-5">
-                                <span class="loc"><a href="#"><i class="icon-map"></i> {{object.created_at}}</a></span>
-                                <span class="star">rate :
-                                    {{object.rate}}</span>
+                                <span class="loc"><i class="icon-map"></i> {{object.created_at}}</a></span>
 
                             </p>
-                            <span>Quality : {{object.quality}} &amp; time : {{object.time}} &amp; Group_age :
-                                {{object.age_group}}</span>
-                            <p>{{object.description|safe}}</p>
+                            <span><h6>Quality : {{object.quality}}</h6><h6> time : {{object.time}}</h6>
+                                <h6>Age_Group : {{object.age_group}}</h6><h6>rate :
+                                    {{object.rate}}</h6></span>
+                                <hr>
+                            <h4>Description</h4>
+                            <h6>{{object.description|safe}}</h6>
+                                                        <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                                 <h4 class="mb-5">Add To Favorite</h4>
                                 <form method="post" class="form">
@@ -37,6 +40,7 @@
                                     {% endbuttons %}
                                 </form>
                             </div>
+                            <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
                                 <h4 class="mb-4">Watch Another</h4>
                                 <div class="row">
@@ -50,16 +54,16 @@
                                                     <div class="one">
                                                         <h3><a href="{{property.get_absolute_url}}">{{property}}</a>
                                                         </h3>
-                                                        <h3>{{movie.time}}</h3>
+                                                        <h3>{{property.time}}</h3>
                                                     </div>
                                                     <div class="two">
                                                         <span
-                                                            class="price per-price">{{property.rate}}<br><small>rate</small></span>
+                                                            class="price per-price">{{property.rate}}<br>rate</span>
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <p class="bottom-area d-flex">
-                                                    <span><i class="icon-map-o"></i> {{property.quality}}</span>
+                                                    <span> {{property.quality}}</span>
                                                     <span class="ml-auto"><a href="{{property.get_absolute_url}}">Watch
                                                             Now</a></span>
                                                 </p>
