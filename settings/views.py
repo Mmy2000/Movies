@@ -2,11 +2,14 @@ from django.shortcuts import render
 from gendr.models import Category , All
 from django.db.models.query_utils import Q
 # Create your views here.
+
+
 def home(request):
     movie_list = All.objects.filter(category__name = 'movie').order_by('-created_at')
-    all_list = All.objects.filter(category__name = 'movie').order_by('-created_at')[:3]
+    all_list = All.objects.filter().order_by('-created_at')[:6]
     series_list = All.objects.filter(category__name = 'series').order_by('-created_at')[:6]
     cartoon_list = All.objects.filter(category__name = 'cartoon').order_by('-created_at')[:6]
+    
 
     
 

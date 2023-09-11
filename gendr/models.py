@@ -16,6 +16,7 @@ class All(models.Model):
     quality = models.CharField(max_length=100)
     age_group = models.CharField(max_length=100)
     category = models.ForeignKey('Category',related_name='all_category',on_delete=models.CASCADE)
+    category2 = models.ForeignKey('Category2',related_name='all_category',on_delete=models.CASCADE , blank=True, null=True,default=None)
     created_at = models.DateTimeField( default=timezone.now)
     slug = models.SlugField(null=True,blank=True)
     time = models.CharField( max_length=50)
@@ -46,7 +47,15 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Category2(models.Model):
+    name = models.CharField(max_length=60 )
+
+    def __str__(self):
+        return self.name
     
+
+
 class AddToFavorite(models.Model):
     user = models.ForeignKey(User, related_name="favorite_owner", on_delete=models.CASCADE)
     gendre = models.ForeignKey(All, related_name="favorite_property", on_delete=models.CASCADE)

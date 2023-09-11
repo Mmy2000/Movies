@@ -7,6 +7,7 @@ from gendr.models import AddToFavorite
 
 
 
+
 def signup(request):
     if request.method == "POST":
         form=SignupForm(request.POST)
@@ -31,6 +32,10 @@ def profile(request):
     profile=Profile.objects.get(user=request.user)
 
     return render(request,'profile/profile.html',{'profile':profile})
+
+
+
+
 
 
 def edit_profile(requset):

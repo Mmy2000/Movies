@@ -8,12 +8,12 @@
         <h2 style="text-align:center;">Profile Page</h2>
         <h3>{{profile.user.username}}</h3>
         <hr>
-        <h5>Email : {{profile.user.email}}</h5>
-        <h5>Phone_Number : {{profile.phone_number}}</h5>
-        <h5>Address : {{profile.address}}</h5>
+        <h5 ><b>Email : </b>{{profile.user.email}}</h5>
+        <h5><b>Phone_Number : </b>{{profile.phone_number}}</h5>
+        <h5><b>Address : </b>{{profile.address}}</h5>
         <hr>
-        <h5> <a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></h5>
-        <h5> <a href="{% url 'accounts:myfavorite' %}">My Favorite</a></h5>
+        <h5><b> <a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></b></h5>
+        <h5><b> <a href="{% url 'accounts:myfavorite' %}">My Favorite</a></b></h5>
 
     </div>
 </div>
