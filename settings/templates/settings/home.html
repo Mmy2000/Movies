@@ -147,15 +147,17 @@
         <!-- END TOP MOVIES SLIDE -->
     </div>
     <!-- END HERO SECTION -->
+
     <div class="container">
-        <button class="button">Movies</button>
-        <button class="button">Series</button>
-        <button class="button">Cartoon</button>
+        {% for category in category  %}
+        <a href="{% url 'home:category_filter' category %}"><button class="button">{{category}}</button></a>
+        {% endfor %}
     </div>
     <div class="container">
-        <input type="text" class="search-bar" placeholder="Search...">
-        <button class="search-button">Search</button>
-
+        <form action="{% url 'home:home_search' %}" method="GET" >
+            <input type="text" class="search-bar" name="name" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </form>
     </div>
     <!-- LATEST MOVIES SECTION -->
     <div class="section">
