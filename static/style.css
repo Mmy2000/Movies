@@ -1,0 +1,95 @@
+           .container {
+               text-align: center;
+
+
+           }
+
+           .button {
+               width: 150px;
+               height: 150px;
+               margin: 0 auto;
+               display: inline-block;
+               padding: 10px 20px;
+               margin: 20px;
+               border: 1px solid #000;
+               background-color: #3d3b3b;
+               color: #ffffff;
+               text-align: center;
+               text-decoration: ;
+               font-size: 16px;
+               cursor: pointer;
+               border-radius: 5px;
+               box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+               transition: all 0.2s ease-in-out;
+               font-size: larger;
+
+           }
+
+           .button:hover {
+               background-color: #e1e0e0;
+               color: #282727;
+           }
+
+           .button:active {
+               transform: translateY(5px);
+           }
+
+
+           .search-bar {
+
+               display: inline-block;
+               padding: 30px 270px;
+               margin: 10px;
+               border: 1px solid #000;
+               background-color: #3d3b3b;
+               color: #d9d9d9;
+               text-align: center;
+               text-decoration: none;
+               font-size: 16px;
+               border-radius: 5px;
+               box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+               transition: all 0.2s ease-in-out;
+               font-size: larger;
+           }
+
+           .search-bar:hover {
+               background-color: #e1e0e0;
+               color: #373636;
+           }
+
+           .search-bar:active {
+               transform: translateY(5px);
+           }
+
+           .search-bar:focus {
+               outline: none;
+           }
+
+           .search-button {
+               display: inline-block;
+               padding: 30px 20px;
+               border: 1px solid #000;
+               background-color: #3d3b3b;
+               color: #d9d9d9;
+               text-align: center;
+               text-decoration: none;
+               font-size: 16px;
+               cursor: pointer;
+               border-radius: 5px;
+               box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+               transition: all 0.2s ease-in-out;
+               font-size: larger;
+           }
+
+           .search-button:hover {
+               background-color: #e1e0e0;
+               color: #373636;
+           }
+
+           .search-button:active {
+               transform: translateY(5px);
+           }
+
+           .search-button :focus {
+               outline: none;
+           }
