@@ -8,6 +8,7 @@ from django_filters.views import FilterView
 from .models import All
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.db.models.query_utils import Q
 
 
 
@@ -36,6 +37,17 @@ class AllDetail(FormMixin,DetailView):
             myform.save()
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    
+
+class PostByTags(ListView):
+    model = All
+
+    def get_queryset(self) :
+        slug = self.kwargs['slug']
+        object_list = All.objects.filter(
+            Q(tags__name__icontains = slug)
+        )
+        return object_list
     
 
 
