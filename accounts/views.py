@@ -19,9 +19,9 @@ def signup(request):
                     user = authenticate(username=usernames,password=passwords)
                     login(request,user)
 
-                    return redirect('/account/profile')
+                    return redirect('/accounts/login')
                 except :
-                    return redirect('/account/profile')
+                    return redirect('/accounts/login')
                 
         else:
             form=SignupForm()
