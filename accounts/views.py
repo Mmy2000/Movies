@@ -29,15 +29,10 @@ def signup(request):
         return render(request,'registration/signup.html',{'form':form})
 
 
-
-
 def profile(request):
     profile=Profile.objects.get(user=request.user)
 
     return render(request,'profile/profile.html',{'profile':profile})
-
-
-
 
 
 

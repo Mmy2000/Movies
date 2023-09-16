@@ -39,15 +39,6 @@ class AllDetail(FormMixin,DetailView):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     
 
-class PostByTags(ListView):
-    model = All
-
-    def get_queryset(self) :
-        slug = self.kwargs['slug']
-        object_list = All.objects.filter(
-            Q(tags__name__icontains = slug)
-        )
-        return object_list
     
 
 

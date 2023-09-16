@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify 
-from taggit.managers import TaggableManager
+
 
 
 
@@ -18,10 +18,10 @@ class All(models.Model):
     quality = models.CharField(max_length=100)
     age_group = models.CharField(max_length=100)
     category = models.ForeignKey('Category',related_name='all_category',on_delete=models.CASCADE)
-    category2 = models.ForeignKey('Category2',related_name='all_category',on_delete=models.CASCADE , blank=True, null=True,default=None)
+    tags = models.ForeignKey('Tags',related_name='all_category',null=True,blank=True, on_delete=models.CASCADE)
+    language = models.ForeignKey('Language',related_name='all_category',null=True,blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField( default=timezone.now)
     slug = models.SlugField(null=True,blank=True)
-    tags = TaggableManager(("tags"))
     time = models.CharField( max_length=50)
 
     def __str__(self):
@@ -51,12 +51,18 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class Category2(models.Model):
-    name = models.CharField(max_length=60 )
+class Tags(models.Model):
+    name = models.CharField(max_length=60)
 
     def __str__(self):
         return self.name
     
+
+class Language(models.Model):
+    name = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.name
 
 
 class AddToFavorite(models.Model):
