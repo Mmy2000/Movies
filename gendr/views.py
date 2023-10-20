@@ -38,6 +38,16 @@ class AllDetail(FormMixin,DetailView):
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     
+class MovieByTags(ListView):
+    model = All
+    paginate_by = 9
+    template_name = 'gendr/tags_search.html'
+    def get_queryset(self) :
+        slug = self.kwargs['slug']
+        object_list = All.objects.filter(
+            Q(tags__name__icontains = slug)
+        )
+        return object_list
 
     
 

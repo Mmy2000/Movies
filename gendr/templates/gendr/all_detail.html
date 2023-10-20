@@ -34,10 +34,10 @@
                             <h4>Story</h4>
                             <h6>{{object.description|safe}}</h6>
                             <hr>
-                            {% if object.tag.all %}
+                            {% if object.tags.all %}
                             <h4 class="mb-3">Tags</h4>
-                            {% for tag in object.tag.all %}
-                            <a href="#" class="tag-cloud-link">{{tag}}</a>&nbsp;
+                            {% for tag in object.tags.all %}
+                            <a href="{% url 'gendr:movie_by_tags' tag %}" class="tag-cloud-link">{{tag}}</a>&nbsp;
                             &nbsp;
                             {% endfor %}
                             {% else %}
