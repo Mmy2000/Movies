@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify 
+from taggit.managers import TaggableManager
 
 
 
@@ -19,6 +20,7 @@ class All(models.Model):
     age_group = models.CharField(max_length=100)
     category = models.ForeignKey('Category',related_name='all_category',on_delete=models.CASCADE)
     tags = models.ForeignKey('Tags',related_name='all_category',null=True,blank=True, on_delete=models.CASCADE)
+    tag = TaggableManager()
     language = models.ForeignKey('Language',related_name='all_category',null=True,blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField( default=timezone.now)
     slug = models.SlugField(null=True,blank=True)
