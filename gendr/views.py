@@ -51,7 +51,7 @@ def like_or_unlike(request,id):
     else:
         product.like.add(request.user)
     
-    return redirect(reverse('all_detail',kwargs={'id':product.id}))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 

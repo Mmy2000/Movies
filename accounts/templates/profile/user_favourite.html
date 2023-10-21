@@ -14,9 +14,9 @@
                     {% for property in user_favourites %}
                     <div class="col-md-3 ftco-animate">
                         <div class="destination">
-                            <a href="{{property.gendre.get_absolute_url}}"
+                            <a href="{{property.get_absolute_url}}"
                                 class="img img-2 d-flex justify-content-center align-items-center"
-                                style="background-image: url({{property.gendre.image.url}});">
+                                style="background-image: url({{property.image.url}});">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-search2"></span>
                                 </div>
@@ -24,17 +24,17 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="{{property.gendre.get_absolute_url}}">{{property.gendre.name}}</a></h3>
-                                        <h3>{{movie.time}}</h3>
+                                        <h3><a href="{{property.get_absolute_url}}">{{property.name}}</a></h3>
+                                        <h3>{{property.time}}</h3>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">{{property.gendre.rate}}<br><small>rate</small></span>
+                                        <span class="price per-price">{{property.rate}}<br><small>rate</small></span>
                                     </div>
                                 </div>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i></i>{{property.gendre.quality}}</span>
-                                    <span class="ml-auto"><a href="{{property.gendre.get_absolute_url}}">Watch Now</a></span>
+                                    <span><i></i>{{property.quality}}</span>
+                                    <span class="ml-auto"><a href="{{property.get_absolute_url}}">Watch Now</a></span>
                                 </p>
                             </div>
                         </div>
