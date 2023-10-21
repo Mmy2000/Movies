@@ -18,6 +18,13 @@
                         </div>
                         <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
                             <h1>{{object}}</h1>
+                            <div class="tagcloud">
+                                {% if request.user in object.like.all %}
+                                <a href="{% url 'gendr:like' object.id %}"> DisLike </a>
+                                {% else %}
+                                <a href="{% url 'gendr:like' object.id %}"> Like </a>
+                                {% endif %}
+                            </div>
                             <hr>
                             <p class="rate mb-5">
                                 <span class="loc"><i class="icon-map"></i> {{object.created_at}}</a></span>
@@ -43,17 +50,6 @@
                             </div>
                             {% else %}
                             {% endif %}
-                            <hr>
-                            <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                                <h4 class="mb-5">Add To Favorite</h4>
-                                <div class="tagcloud">
-                                    {% if request.user in object.like.all %}
-                                    <a href="{% url 'gendr:like' object.id %}"> DisLike </a>
-                                    {% else %}
-                                    <a href="{% url 'gendr:like' object.id %}"> Like </a>
-                                    {% endif %}
-                                </div>
-                            </div>
                             <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
                                 <h4 class="mb-4">Watch Another</h4>
