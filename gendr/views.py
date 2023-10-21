@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.generic import ListView , DetailView 
 from django.views.generic.edit import FormMixin
-from .forms import PropertyFVForm
 from .filters import PropertyFilter
 from django_filters.views import FilterView
 from .models import All
@@ -19,24 +18,16 @@ class AllList(FilterView):
     filterset_class = PropertyFilter
     template_name = 'gendr/all_list.html'
 
-class AllDetail(FormMixin,DetailView):
+class AllDetail(DetailView):
     model = All
-    form_class = PropertyFVForm
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["related"] = All.objects.filter(category=self.get_object().category).order_by('-created_at')[:3]
         return context
-    def post(self , request , *args , **kwargs):
-        form = self.get_form()
-        if form.is_valid():
-            myform = form.save(commit=False)
-            myform.gendre= self.get_object()
-            myform.user = request.user
-            myform.save()
 
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
     
 class MovieByTags(ListView):
     model = All
@@ -51,7 +42,20 @@ class MovieByTags(ListView):
 
     
 
+def like_or_unlike(request,id):
+    product = All.objects.get(id=id)
+
+    if request.user in product.like.all():
+        product.like.remove(request.user)
+    
+    else:
+        product.like.add(request.user)
+    
+    return redirect(reverse('all_detail',kwargs={'id':product.id}))
 
 
 
 
+
+
+        #return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

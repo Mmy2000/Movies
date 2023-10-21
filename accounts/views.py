@@ -3,7 +3,8 @@ from .forms import SignupForm , UserForm , ProfileForm
 from .models import Profile 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate , login 
-from gendr.models import AddToFavorite
+from gendr.models import All
+
 
 
 
@@ -57,6 +58,9 @@ def edit_profile(requset):
         'profile_form':profile_form
     })
 
-def myfavorite(request):
-    favorite_list = AddToFavorite.objects.filter(user=request.user)
-    return render(request , 'profile/favorite.html',{'favorite_list':favorite_list})
+
+
+def user_favourites(request):
+    user_favourites = All.objects.filter(like=request.user)
+    return render(request,'profile/user_favourite.html',{'user_favourites':user_favourites})
+

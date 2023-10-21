@@ -46,13 +46,11 @@
                             <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                                 <h4 class="mb-5">Add To Favorite</h4>
-                                <form method="post" class="form">
-                                    {% csrf_token %}
-                                    {% bootstrap_form form %}
-                                    {% buttons %}
-                                    <button type="submit" class="btn btn-primary">Add To Favorite</button>
-                                    {% endbuttons %}
-                                </form>
+                                {% if request.user in object.like.all %}
+                                <a href="{% url 'gendr:like' product.id %}"> DisLike </a>
+                                {% else %}
+                                <a href="{% url 'gendr:like' product.id %}"> Like </a>
+                                {% endif %}
                             </div>
                             <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">

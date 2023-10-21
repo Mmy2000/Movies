@@ -15,6 +15,7 @@ class All(models.Model):
     image = models.ImageField(upload_to='all/')
     image2 = models.ImageField( upload_to='all/')
     rate = models.FloatField(default=0)
+    like = models.ManyToManyField(User , blank=True)
     description = models.TextField(max_length=10000)
     quality = models.CharField(max_length=100)
     age_group = models.CharField(max_length=100)
@@ -60,10 +61,3 @@ class Language(models.Model):
     def __str__(self):
         return self.name
 
-
-class AddToFavorite(models.Model):
-    user = models.ForeignKey(User, related_name="favorite_owner", on_delete=models.CASCADE)
-    gendre = models.ForeignKey(All, related_name="favorite_property", on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.gendre)

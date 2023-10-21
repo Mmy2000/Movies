@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from . models import All , AllImages , AddToFavorite , Category , Language
+from . models import All , AllImages , Category , Language
 
 
 class SomeModelAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
@@ -9,7 +9,6 @@ class SomeModelAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
 
 admin.site.register(All,SomeModelAdmin)
 admin.site.register(AllImages)
-admin.site.register(AddToFavorite)
 admin.site.register(Category)
 admin.site.register(Language)
 
