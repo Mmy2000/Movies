@@ -46,11 +46,13 @@
                             <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                                 <h4 class="mb-5">Add To Favorite</h4>
-                                {% if request.user in object.like.all %}
-                                <a href="{% url 'gendr:like' object.id %}"> DisLike </a>
-                                {% else %}
-                                <a href="{% url 'gendr:like' object.id %}"> Like </a>
-                                {% endif %}
+                                <div class="tagcloud">
+                                    {% if request.user in object.like.all %}
+                                    <a href="{% url 'gendr:like' object.id %}"> DisLike </a>
+                                    {% else %}
+                                    <a href="{% url 'gendr:like' object.id %}"> Like </a>
+                                    {% endif %}
+                                </div>
                             </div>
                             <hr>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
