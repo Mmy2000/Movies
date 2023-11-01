@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .forms import SignupForm , UserForm , ProfileForm
+from .forms import SignupForm , UserForm , ProfileForm 
 from .models import Profile 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate , login 
@@ -41,8 +41,7 @@ def edit_profile(requset):
     profile = Profile.objects.get(user=requset.user)
     if requset.method == "POST":
         user_form = UserForm(requset.POST , instance=requset.user)
-        profile_form = ProfileForm(requset.POST,instance=profile)
-
+        profile_form = ProfileForm(requset.POST,requset.FILES,instance=profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             myprofile = profile_form.save(commit=False)
@@ -52,6 +51,7 @@ def edit_profile(requset):
     else:
         user_form = UserForm(instance=requset.user)
         profile_form = ProfileForm(instance=profile)
+
 
     return render(requset,'profile/profile_edit.html',{
         'user_form':user_form,

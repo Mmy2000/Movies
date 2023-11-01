@@ -8,6 +8,7 @@ from .models import All
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.db.models.query_utils import Q
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -41,7 +42,7 @@ class MovieByTags(ListView):
         return object_list
 
     
-
+@login_required
 def like_or_unlike(request,id):
     product = All.objects.get(id=id)
 
@@ -55,7 +56,3 @@ def like_or_unlike(request,id):
 
 
 
-
-
-
-        #return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
