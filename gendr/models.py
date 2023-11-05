@@ -49,6 +49,7 @@ class AllImages(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=60)
+    icons = models.CharField(max_length=50,blank=True,null=True)
 
     def __str__(self):
         return self.name
