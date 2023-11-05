@@ -150,7 +150,7 @@
 
     <div class="container">
         {% for category in category  %}
-        <a href="{% url 'home:category_filter' category %}"><button class="button">{{category}}</button></a>
+        <a href="{% url 'home:category_filter' category %}"><button class="button"><i class="{{category.icons}}"></i>{{category}}</button></a>
         {% endfor %}
     </div>
     <div class="container">
