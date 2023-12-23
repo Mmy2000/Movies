@@ -148,18 +148,4 @@
 
     </div>
 </div>
-<div class="container">
-    <div class="col-md-6 mx-auto mt-5">
-        <h2 style="text-align:center;">Profile Page</h2>
-        <h3>{{profile.user.username}}</h3>
-        <hr>
-        <h5 ><b>Email : </b>{{profile.user.email}}</h5>
-        <h5><b>Phone_Number : </b>{{profile.phone_number}}</h5>
-        <h5><b>Address : </b>{{profile.address}}</h5>
-        <hr>
-        <h5><b> <a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></b></h5>
-        <h5><b> <a href="{% url 'accounts:user_favourites' %}">My Favorite</a></b></h5>
-
-    </div>
-</div>
 {% endblock body %}
