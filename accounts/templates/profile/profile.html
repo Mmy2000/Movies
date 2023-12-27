@@ -30,8 +30,7 @@
                                 <p class="text-muted mb-1">{{profile.headline}}</p>
                                 <p class="text-muted font-size-sm">{{profile.full_address}}</p>
                                 <a href="{% url 'accounts:user_favourites' %}" class="btn btn-primary">My Favorite</a>
-                                <a href="" class="btn btn-outline-primary">My Listing<span
-                                        class="badge"></span></a>
+                                <a href="" class="btn btn-outline-primary">My Listing<span class="badge"></span></a>
                             </div>
                         </div>
                     </div>
@@ -124,10 +123,13 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                 <a class="btn btn-primary " target="__blank" href="{% url 'accounts:edit_profile' %}">Edit Profile</a>&nbsp;
-                                 <a class="btn btn-primary " target="__blank" href="{% url 'accounts:forgotPassword' %}">Reset Password</a>&nbsp;
-                                 <a class="btn btn-primary " target="__blank" href="{% url 'password_change' %}">Change Password</a>&nbsp;
-                                 <a class="btn btn-primary " target="__blank" href="{% url 'logout' %}">Logout</a>&nbsp;
+                                <a class="btn btn-primary " target="__blank"
+                                    href="{% url 'accounts:edit_profile' %}">Edit Profile</a>&nbsp;
+                                <a class="btn btn-primary " target="__blank"
+                                    href="{% url 'accounts:forgotPassword' %}">Reset Password</a>&nbsp;
+                                <a class="btn btn-primary " target="__blank" href="{% url 'password_change' %}">Change
+                                    Password</a>&nbsp;
+                                <a class="btn btn-primary " target="__blank" href="{% url 'logout' %}">Logout</a>&nbsp;
                             </div>
                         </div>
                     </div>
