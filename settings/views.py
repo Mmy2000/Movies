@@ -5,7 +5,7 @@ from django.db.models.query_utils import Q
 
 
 def home(request):
-    movie_list = All.objects.filter().order_by('-created_at')
+    movie_list = All.objects.filter(category__name = 'movie').order_by('-created_at')
     all_list = All.objects.filter().order_by('-created_at')[:6]
     series_list = All.objects.filter(category__name = 'series').order_by('-created_at')[:6]
     cartoon_list = All.objects.filter(category__name = 'cartoon').order_by('-created_at')[:6]
