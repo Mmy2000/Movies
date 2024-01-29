@@ -7,6 +7,7 @@ from django.db.models.query_utils import Q
 def home(request):
     movie_list = All.objects.filter(category__name = 'movie').order_by('-created_at')
     all_list = All.objects.filter().order_by('-created_at')[:6]
+    all_list_2 = All.objects.all().order_by('-created_at')
     series_list = All.objects.filter(category__name = 'series').order_by('-created_at')[:6]
     cartoon_list = All.objects.filter(category__name = 'cartoon').order_by('-created_at')[:6]
     category = Category.objects.all()
@@ -17,6 +18,7 @@ def home(request):
         'series_list':series_list,
         'cartoon_list':cartoon_list,
         'category' : category ,
+        'all_list_2':all_list_2
     })
 
 def home_search(request):
