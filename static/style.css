@@ -53,7 +53,7 @@
            }
 
            .search-bar:hover {
-               background-color: #e1e0e0;
+               background-color: #acb126;
                color: #373636;
            }
 
@@ -83,7 +83,7 @@
 
            .search-button:hover {
                background-color: #e1e0e0;
-               color: #373636;
+               color: #c0392b;
            }
 
            .search-button:active {
