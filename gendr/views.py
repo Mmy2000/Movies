@@ -32,7 +32,7 @@ class AllDetail(DetailView):
     
 class MovieByTags(ListView):
     model = All
-    paginate_by = 12
+    paginate_by = 8
     template_name = 'gendr/tags_search.html'
     def get_queryset(self) :
         slug = self.kwargs['slug']
